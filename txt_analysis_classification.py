@@ -3,11 +3,6 @@ fraud_dataset = {
 }
 victim_dataset = {
     "team":["jeeva","bala","harini","abi"]
-}fraud_dataset = {
-    "phishing":["email","text messages","phone calls","trick","sharing", "sensitive data", "downloading malware"],
-}
-victim_dataset = {
-    "team":["jeeva","bala","harini","abi"]
 }
 
 # accepting compliant from the victim
