@@ -1,2 +1,2 @@
 on progress - creating dataset 
-on process - creating py program
+on process - creating python program file
