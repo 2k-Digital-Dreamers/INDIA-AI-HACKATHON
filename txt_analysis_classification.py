@@ -3,10 +3,25 @@ fraud_dataset = {
 }
 victim_dataset = {
     "team":["jeeva","bala","harini","abi"]
+}fraud_dataset = {
+    "phishing":["email","text messages","phone calls","trick","sharing", "sensitive data", "downloading malware"],
+}
+victim_dataset = {
+    "team":["jeeva","bala","harini","abi"]
 }
 
 # accepting compliant from the victim
-compliant = str(input("GIVE YOUR COMPLIANT\n"))
+compliant = str(input("GIVE YOUR COMPLIANT\n")).lower()
+
+# removing symbols by replacing it with single space
+temp_compliant = ""
+for char in compliant:
+    if char.isalnum():
+        temp_compliant += char
+    else:
+        temp_compliant += ' '
+        
+compliant = temp_compliant
 
 # converting the compliant into words
 splitted_compliant = compliant.split()
