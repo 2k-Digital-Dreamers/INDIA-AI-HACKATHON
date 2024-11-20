@@ -1,5 +1,7 @@
-dataset = {
+fraud_dataset = {
     "phishing":["email","text messages","phone calls","trick","sharing", "sensitive data", "downloading malware"],
+}
+victim_dataset = {
     "team":["jeeva","bala","harini","abi"]
 }
 
@@ -16,13 +18,19 @@ join_words = ['he', 'same', 'as', 'on', 'o', 'off', 'is', 'during', 'was', 'out'
 for join_word in join_words:
     if join_word in splitted_compliant:
          splitted_compliant.remove(join_word)
-     
-#  reading the each dictionary elements one by one
-for data in dataset:
-   # comparing with the user's word(input)
-   for splitted_word in splitted_compliant:
-       for  i in dataset[data]:
-            if splitted_word == i:
-                print(1,data)
 
+# Identify the type of cyber crime 
+detected_cyber_crime_fraud = None
+for crime, keywords in fraud_dataset.items():
+    if any(keyword in splitted_compliant for keyword in keywords):
+        detected_cyber_crime_fraud = crime
 
+# Identify the type of victim
+detected_victim = None
+for crime, keywords in victim_dataset.items():
+    if any(keyword in splitted_compliant for keyword in keywords):
+        detected_victim = crime
+
+# displaying the output
+print(f"detected cyber crime fraud : {detected_cyber_crime_fraud}")
+print(f"detected victim : {detected_victim}")
