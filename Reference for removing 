@@ -1,5 +1,0 @@
-Jeeva ="shsh sj jshs jegebshe jshsbjais hsgsbsjsi jshsbsjsb"
-Bala=(Jeeva.split())
-Harini=["sj","jshs"]
-Bala.remove("sj")
-print(Bala)
