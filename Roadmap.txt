@@ -1,0 +1,7 @@
+step 1:Creating Fraud Dataset,victim Dodaset for classification 
+step 2:Accept complast from victim 
+step 3:Remove The tenses,english grammers,etc...to normal english
+      example:speaking -> speak
+step 4:Remove the joining words like is, The, are, etc..
+step 5a:Now compare the Remaining words in the complaint by victim with the fraud data set and store the result in an seperate variable
+step 5b:Now compare the Remaining words in the complaint by victim with the victim data set and store the result in an seperate variable
