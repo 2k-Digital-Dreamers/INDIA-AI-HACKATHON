@@ -1,2 +1,0 @@
-on progress - creating dataset 
-on process - creating python program file
