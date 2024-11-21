@@ -140,4 +140,4 @@ for victim,count in victim_probability:
 print(f"\n==>detected cyber crime fraud \n------->> {_fraud}")
 
 # displaying the output
-print(f"\n==>detected victim \n-------> {_victim}")
+print(f"\n==>detected victim \n-------> {_victim}\n\n")
