@@ -13,8 +13,14 @@ fraud_dataset = {
     "cyber_defamation": ["falseaccusation", "false", "accusation", "onlineslander", "online", "slander", "libel", "damagingreputation", "damage", "reputation", "maliciouscontent", "malicious", "content", "internetdefamation", "internet", "defamation"]
 }
 
+
 victim_dataset = {
-    "team":["jeeva","balasurya","harinisri","abinaya"]
+    "bank": [ "fraud", "theft", "cyberattack", "cyber", "attack", "phishing", "ransomware", "data", "breach", "financial", "scam", "hacking", "unauthorized", "transaction", "account", "takeover", "wire", "robbery", "money", "laundering", "ATM", "skimming", "check", "loan", "investment", "manipulation", "credit", "debit", "Ponzi", "scheme", "kiting", "identity", "false", "creation" ],
+    "company": [ "corporate", "espionage", "data", "breach", "intellectual", "property", "theft", "cyber", "extortion", "employee", "business", "fraud", "insider", "trading", "malware", "financial", "misconduct", "contract", "bribery", "embezzlement", "trade", "secrets", "industrial", "sabotage", "statement", "misappropriation", "assets", "fake", "invoices", "kickback", "schemes", "vendor", "procurement", "shell", "company", "misstatement", "spying" ],
+    "individual": [ "identity", "theft", "credit", "card", "fraud", "personal", "data", "breach", "harassment", "assault", "domestic", "violence", "stalking", "financial", "scam", "elder", "abuse", "child", "cyber", "bullying", "online", "phone", "mugging", "pickpocketing", "dating", "email", "lottery", "investment", "fraudulent", "schemes", "false", "pretenses", "home", "invasion", "carjacking", "social", "engineering", "cyberstalking", "internet" ], 
+    "non_government_organization": [ "funding", "fraud", "donation", "scam", "phishing", "data", "breach", "misappropriation", "embezzlement", "fake", "charity", "volunteer", "unauthorized", "access", "cyberattack", "grant", "counterfeit", "donations", "trust", "fund", "misuse", "financial", "irregularities", "fraudulent", "fundraising", "campaigns", "embezzled", "funds", "reporting", "donor", "tax", "evasion", "projects", "diversion", "cyberfraud" ], 
+    "government_organization": [ "cyber", "espionage", "data", "breach", "phishing", "ransomware", "bribery", "corruption", "embezzlement", "document", "fraud", "identity", "theft", "misuse", "funds", "government", "political", "scandal", "whistleblower", "retaliation", "procurement", "graft", "public", "sector", "extortion", "contracts", "ghost", "employees", "budget", "misallocation", "policy", "kickbacks", "regulatory", "election", "threats" ], 
+    "industry": [ "industrial", "espionage", "data", "theft", "cyberattack", "phishing", "sabotage", "patent", "infringement", "trade", "secret", "counterfeit", "unauthorized", "access", "fraudulent", "contracts", "supply", "chain", "production", "intellectual", "property", "violation", "brand", "regulatory", "compliance", "market", "manipulation", "insider", "products", "manipulation", "tech", "environmental", "advertising" ]
 }
 
 # accepting compliant from the victim
