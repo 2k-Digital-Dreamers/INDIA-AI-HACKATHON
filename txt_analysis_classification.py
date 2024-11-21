@@ -60,11 +60,15 @@ for join_word in join_words:
          splitted_compliant.remove(join_word)
 
 # Identify the type of cyber crime 
-detected_cyber_crime_fraud = None
-for crime, keywords in fraud_dataset.items():
-    if any(keyword in splitted_compliant for keyword in keywords):
-        detected_cyber_crime_fraud = crime
-
+detect_fraud = []
+for word in splitted_compliant:
+    for crime,keywords in fraud_dataset.items():
+        count = 0
+        for key in keywords:
+            if key == word:
+                count += 1
+        detect_fraud.append([crime,count])
+        
 # Identify the type of victim
 detected_victim = None
 for crime, keywords in victim_dataset.items():
