@@ -1,16 +1,16 @@
 fraud_dataset = {
     "phishing": ["email", "messages", "phone", "calls", "trick", "share", "sensitive", "data", "malware", "suspicious", "locked", "security", "password", "login", "unauthorized", "identity", "click", "offer", "won", "deal", "gift", "information", "billing", "payment", "reactivate", "greeting", "attachments", "fake"],
-    "identity_theft": ["stolenidentity", "stolen", "identity", "personalinformation", "personal", "information", "socialsecurity", "social", "security", "creditcard", "credit", "card", "fraud", "impersonation", "unauthorizedaccess", "unauthorized", "access"],
-    "credit_card_fraud": ["stolencard", "stolen", "card", "unauthorizedtransactions", "unauthorized", "transactions", "cardcloning", "card", "cloning", "skimming", "onlinepurchase", "online", "purchase", "fraudalert", "fraud", "alert"],
+    "identity theft": ["stolenidentity", "stolen", "identity", "personalinformation", "personal", "information", "socialsecurity", "social", "security", "creditcard", "credit", "card", "fraud", "impersonation", "unauthorizedaccess", "unauthorized", "access"],
+    "credit card fraud": ["stolencard", "stolen", "card", "unauthorizedtransactions", "unauthorized", "transactions", "cardcloning", "card", "cloning", "skimming", "onlinepurchase", "online", "purchase", "fraudalert", "fraud", "alert"],
     "ransomware": ["malware", "encryption", "ransom", "bitcoin", "cyberattack", "cyber", "attack", "datahostage", "data", "hostage", "decryptionkey", "decryption", "key", "lockscreen", "lock", "screen"],
     "malware": ["virus", "trojan", "spyware", "worm", "infection", "malicioussoftware", "malicious", "software", "systemdamage", "system", "damage", "datatheft", "data", "theft"],
-    "cyber_extortion": ["threat", "blackmail", "demand", "payment", "cyberattack", "cyber", "attack", "sensitiveinformation", "sensitive", "information", "ransom"],
-    "online_scams": ["fakewebsite", "fake", "website", "lottery", "inheritance", "romance", "investment", "advancefee", "advance", "fee", "phishing", "fraud"],
-    "data_breach": ["stolendata", "stolen", "data", "leakedinformation", "leaked", "information", "compromisedsystem", "compromised", "system", "unauthorizedaccess", "unauthorized", "access", "personaldata", "personal", "data", "securitybreach", "security", "breach"],
+    "cyber extortion": ["threat", "blackmail", "demand", "payment", "cyberattack", "cyber", "attack", "sensitiveinformation", "sensitive", "information", "ransom"],
+    "online scams": ["fakewebsite", "fake", "website", "lottery", "inheritance", "romance", "investment", "advancefee", "advance", "fee", "phishing", "fraud"],
+    "data breach": ["stolendata", "stolen", "data", "leakedinformation", "leaked", "information", "compromisedsystem", "compromised", "system", "unauthorizedaccess", "unauthorized", "access", "personaldata", "personal", "data", "securitybreach", "security", "breach"],
     "ddos": ["attack", "overload", "servercrash", "server", "crash", "trafficflood", "traffic", "flood", "botnet", "networkdisruption", "network", "disruption", "downtime"],
-    "cyber_stalking": ["harassment", "onlinetracking", "online", "tracking", "threateningmessages", "threatening", "messages", "privacyinvasion", "privacy", "invasion", "monitoring", "intimidation"],
+    "cyber stalking": ["harassment", "onlinetracking", "online", "tracking", "threateningmessages", "threatening", "messages", "privacyinvasion", "privacy", "invasion", "monitoring", "intimidation"],
     "intellectual_property_theft": ["piracy", "copyrightinfringement", "copyright", "infringement", "stolencode", "stolen", "code", "trademarkviolation", "trademark", "violation", "illegaldistribution", "illegal", "distribution", "counterfeit"],
-    "cyber_defamation": ["falseaccusation", "false", "accusation", "onlineslander", "online", "slander", "libel", "damagingreputation", "damage", "reputation", "maliciouscontent", "malicious", "content", "internetdefamation", "internet", "defamation"]
+    "cyber defamation": ["falseaccusation", "false", "accusation", "onlineslander", "online", "slander", "libel", "damagingreputation", "damage", "reputation", "maliciouscontent", "malicious", "content", "internetdefamation", "internet", "defamation"]
 }
 
 
@@ -24,7 +24,7 @@ victim_dataset = {
 }
 
 # accepting compliant from the victim
-compliant = str(input("GIVE YOUR COMPLIANT\n")).lower()
+compliant = str(input("GIVE YOUR COMPLIANT\n==>")).lower()
 
 # removing symbols by replacing it with single space
 temp_compliant = ""
@@ -81,10 +81,18 @@ for word in splitted_compliant:
             detect_fraud.append([crime,count])
 
 
+temp_dict = {}
+
+for item in detect_fraud:
+    category = item[0]
+    temp_dict[category] = temp_dict.get(category, 0) + item[1]
+
+fraud_probability = [[category, count] for category, count in temp_dict.items()]
+
 # detect the fraud
 _fraud=""
 _fcount=0
-for crime,count in detect_fraud:
+for crime,count in fraud_probability:
         
     if _fcount < count:
         _fraud = crime
@@ -94,11 +102,46 @@ for crime,count in detect_fraud:
         _fcount = count
     else:
         continue
+    
+    
+# Identify the type of victim
+detect_victim = []
+for word in splitted_compliant:
+    
+    for victim,keywords in victim_dataset.items():
+        count =0
+        for key in keywords:
+            if key == word:
+                count += 1
+        if count > 0:
+            detect_victim.append([victim,count])
 
 
+temp_dict = {}
 
+for item in detect_victim:
+    category = item[0]
+    temp_dict[category] = temp_dict.get(category, 0) + item[1]
+
+victim_probability = [[category, count] for category, count in temp_dict.items()]
+
+# detect the victim
+_victim=""
+_vcount=0
+for victim,count in victim_probability:
+    
+    if _vcount < count:
+        _victim = victim
+        _vcount = count
+    elif _vcount == count:
+        _victim += " or " + crime
+        _vcount = count
+    else:
+        continue
 
 
 # displaying the output
-print(f"\n\ndetected cyber crime fraud \n -> {_fraud}")
-#print(f"detected victim : {detected_victim}")
+print(f"\n==>detected cyber crime fraud \n------->> {_fraud}")
+
+# displaying the output
+print(f"\n==>detected victim \n-------> {_victim}")
