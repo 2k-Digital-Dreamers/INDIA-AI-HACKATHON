@@ -1,1 +1,33 @@
+[
+  {
+    "Category": "Phishing",
+    "Incident Description": "Received a suspicious email claiming to be from a bank asking for login details.",
+    "Date of Incident": "2023-01-15",
+    "Method of Attack": "Email",
+    "Victim Demographics": {
+      "Age": 34,
+      "Gender": "Male",
+      "Location": "Coimbatore, Tamil Nadu"
+    },
+    "Financial Loss": "INR 10,000",
+    "Recovery Steps": "Reported to bank, changed passwords, installed antivirus software",
+    "Outcome": "Recovered partial amount, ongoing investigation",
+    "Notes": "Email looked very convincing, had bank's logo and similar email address"
+  },
+  {
+    "Category": "Identity Theft",
+    "Incident Description": "Personal information was stolen and used to open unauthorized credit accounts.",
+    "Date of Incident": "2023-03-05",
+    "Method of Attack": "Data Breach",
+    "Victim Demographics": {
+      "Age": 28,
+      "Gender": "Female",
+      "Location": "Chennai, Tamil Nadu"
+    },
+    "Financial Loss": "INR 50,000",
+    "Recovery Steps": "Notified credit card companies, filed a police report, monitored credit reports",
+    "Outcome": "Fraudulent accounts closed, credit score impacted",
+    "Notes": "Data breach from a popular e-commerce site"
+  }
+]
 
