@@ -78,10 +78,9 @@ for crime,count in detect_fraud:
         _fraud.insert(0,crime)
         del _fraud[1]
         _fcount = count
-    else:
-        if _fcount == count:
-            _fraud.inset(1,crime)
-            _fcount = count
+    elif _fcount == count:
+        _fraud.inset(1,crime)
+        _fcount = count
     else:
         continue
 
