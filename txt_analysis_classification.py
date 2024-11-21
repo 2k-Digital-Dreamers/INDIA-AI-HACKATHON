@@ -67,14 +67,28 @@ for word in splitted_compliant:
         for key in keywords:
             if key == word:
                 count += 1
-        detect_fraud.append([crime,count])
-        
-# Identify the type of victim
-detected_victim = None
-for crime, keywords in victim_dataset.items():
-    if any(keyword in splitted_compliant for keyword in keywords):
-        detected_victim = crime
+        if count > 0:
+            detect_fraud.append([crime,count])
+
+# detect the fraud
+_fraud=[]
+_fcount=0
+for crime,count in detect_fraud:
+    if _fcount < count:
+        _fraud.insert(0,crime)
+        del _fraud[1]
+        _fcount = count
+    else:
+        if _fcount == count:
+            _fraud.inset(1,crime)
+            _fcount = count
+    else:
+        continue
+
+    
+
+
 
 # displaying the output
-print(f"detected cyber crime fraud : {detected_cyber_crime_fraud}")
-print(f"detected victim : {detected_victim}")
+print(f"detected cyber crime fraud : {_fraud}")
+#print(f"detected victim : {detected_victim}")
