@@ -121,17 +121,20 @@ for item in detect_victim:
 
 victim_probability = [[category, count] for category, count in temp_dict.items()]
 
+print(victim_probability)
 # detect the victim
 _victim=""
 _vcount=0
 for victim,count in victim_probability:
-    
-    if _vcount < count:
+    print("--->",victim,count)
+    if _vcount == count:
+        _victim += " or " + victim
+        _vcount = count
+        print(_victim)
+    elif _vcount < count:
         _victim = victim
         _vcount = count
-    elif _vcount == count:
-        _victim += " or " + crime
-        _vcount = count
+        print(_victim)
     else:
         continue
 
