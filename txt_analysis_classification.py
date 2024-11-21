@@ -74,13 +74,12 @@ for word in splitted_compliant:
         if count > 0:
             detect_fraud.append([crime,count])
 
-print(detect_fraud)
+
 # detect the fraud
 _fraud=""
 _fcount=0
 for crime,count in detect_fraud:
-    if count>0:  
-        print(crime,count)
+        
     if _fcount < count:
         _fraud = crime
         _fcount = count
@@ -95,5 +94,5 @@ for crime,count in detect_fraud:
 
 
 # displaying the output
-print(f"detected cyber crime fraud \n -> {_fraud}")
+print(f"\n\ndetected cyber crime fraud \n -> {_fraud}")
 #print(f"detected victim : {detected_victim}")
