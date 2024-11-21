@@ -14,7 +14,7 @@ fraud_dataset = {
 }
 
 victim_dataset = {
-    "team":["jeeva","bala","harini","abi"]
+    "team":["jeeva","balasurya","harinisri","abinaya"]
 }
 
 # accepting compliant from the victim
