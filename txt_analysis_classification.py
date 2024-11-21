@@ -80,9 +80,8 @@ for word in splitted_compliant:
         if count > 0:
             detect_fraud.append([crime,count])
 
-
+# uniformly arranging the detect_fraud elements
 temp_dict = {}
-
 for item in detect_fraud:
     category = item[0]
     temp_dict[category] = temp_dict.get(category, 0) + item[1]
@@ -103,7 +102,6 @@ for crime,count in fraud_probability:
     else:
         continue
     
-    
 # Identify the type of victim
 detect_victim = []
 for word in splitted_compliant:
@@ -116,9 +114,8 @@ for word in splitted_compliant:
         if count > 0:
             detect_victim.append([victim,count])
 
-
+# uniformly arranging the detect_victim elements
 temp_dict = {}
-
 for item in detect_victim:
     category = item[0]
     temp_dict[category] = temp_dict.get(category, 0) + item[1]
@@ -138,7 +135,6 @@ for victim,count in victim_probability:
         _vcount = count
     else:
         continue
-
 
 # displaying the output
 print(f"\n==>detected cyber crime fraud \n------->> {_fraud}")
